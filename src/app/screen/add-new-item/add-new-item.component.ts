@@ -1,4 +1,6 @@
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {Component, OnInit} from '@angular/core';
+import {MatSnackBar} from "@angular/material/snack-bar";
 import {Item} from "../../shared/model/item";
 
 @Component({
@@ -13,33 +15,35 @@ export class AddNewItemComponent implements OnInit {
   inItemList: Item[] = []
   outItemList: Item[] = []
 
-  constructor() {
+  constructor(
+    private snackBar: MatSnackBar
+  ) {
   }
 
   ngOnInit(): void {
 
-    this.inItemList.push({
-        name: 'Name 1',
-        price: 100,
-        imageBase64: ''
-      },
-      {
-        name: 'Name 2',
-        price: 100,
-        imageBase64: ''
-      },
-    )
-    this.outItemList.push({
-        name: 'Name 3',
-        price: 100,
-        imageBase64: ''
-      },
-      {
-        name: 'Name 4',
-        price: 100,
-        imageBase64: ''
-      },
-    )
+    // this.inItemList.push({
+    //     name: 'Name 1',
+    //     price: 100,
+    //     imageBase64: ''
+    //   },
+    //   {
+    //     name: 'Name 2',
+    //     price: 100,
+    //     imageBase64: ''
+    //   },
+    // )
+    // this.outItemList.push({
+    //     name: 'Name 3',
+    //     price: 100,
+    //     imageBase64: ''
+    //   },
+    //   {
+    //     name: 'Name 4',
+    //     price: 100,
+    //     imageBase64: ''
+    //   },
+    // )
   }
 
   newItem: Item = new Item()
@@ -66,6 +70,7 @@ export class AddNewItemComponent implements OnInit {
       || this.newItem.name == null
       || this.newItem.price == null
       || this.newItem.imageBase64 == null) {
+      this.snackBar.open('Missing Item data!', 'Close', {duration: 3000})
       return
     }
     if (destination == 'in') {
@@ -75,5 +80,19 @@ export class AddNewItemComponent implements OnInit {
       this.outItemList.push(this.newItem)
     }
     this.newItem = new Item()
+  }
+
+
+  drop(event: CdkDragDrop<string[]> | any) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 }

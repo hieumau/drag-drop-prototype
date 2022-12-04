@@ -16,20 +16,9 @@ export class AppComponent {
 
   menu: NavItem [] = [
     {
-      displayName: 'User',
+      displayName: 'Page 1',
       iconName: 'account_circle',
-      children: [
-        {
-          displayName: 'Manage',
-          iconName: 'table_chart',
-          route: '/user/list',
-        },
-        {
-          displayName: 'Add',
-          iconName: 'add_circle',
-          route: '/user/add'
-        },
-      ]
+      route: 'page1'
     },
 
   ];

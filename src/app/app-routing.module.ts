@@ -6,8 +6,12 @@ import {IndexComponent} from "./shared/page/index/index.component";
 
 const routes: Routes = [
   {
-    path: '**',
+    path: 'page1',
     component: AddNewItemComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'page1'
   }
 ];
 

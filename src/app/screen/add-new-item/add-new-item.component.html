@@ -1,17 +1,29 @@
 <div class="container">
-  <div class="in-out-list-container">
+  <div class="in-out-list-container" cdkDropListGroup>
     <div class="list-container">
       <div class="list-title">IN</div>
       <hr class="solid">
-      <div class="item-container" *ngFor="let item of inItemList">
-        <app-item [item]="item"></app-item>
+      <div
+        cdkDropList
+        [cdkDropListData]="inItemList"
+        class="list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="item-container" *ngFor="let item of inItemList" cdkDrag>
+          <app-item [item]="item"></app-item>
+        </div>
       </div>
     </div>
-    <div  class="list-container">
+    <div class="list-container">
       <div class="list-title">OUT</div>
       <hr class="solid">
-      <div class="item-container" *ngFor="let item of outItemList">
-        <app-item [item]="item"></app-item>
+      <div
+        cdkDropList
+        [cdkDropListData]="outItemList"
+        class="list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="item-container" *ngFor="let item of outItemList" cdkDrag>
+          <app-item [item]="item"></app-item>
+        </div>
       </div>
     </div>
   </div>
