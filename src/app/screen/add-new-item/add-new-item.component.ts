@@ -19,10 +19,27 @@ export class AddNewItemComponent implements OnInit {
   ngOnInit(): void {
 
     this.inItemList.push({
-      name: 'Name 1',
-      price: 100,
-      imageBase64: ''
-    })
+        name: 'Name 1',
+        price: 100,
+        imageBase64: ''
+      },
+      {
+        name: 'Name 2',
+        price: 100,
+        imageBase64: ''
+      },
+    )
+    this.outItemList.push({
+        name: 'Name 3',
+        price: 100,
+        imageBase64: ''
+      },
+      {
+        name: 'Name 4',
+        price: 100,
+        imageBase64: ''
+      },
+    )
   }
 
   newItem: Item = new Item()

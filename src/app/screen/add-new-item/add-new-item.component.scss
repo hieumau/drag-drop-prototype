@@ -7,7 +7,7 @@
 
 .in-out-list-container {
   display: flex;
-  gap: 15px;
+  gap: 30px;
   border-radius: 10px;
   border: 1px solid black;
   padding: 15px;
@@ -26,3 +26,6 @@
   margin-right: 20px;
 }
 
+.item-container {
+  padding: .5rem 0;
+}

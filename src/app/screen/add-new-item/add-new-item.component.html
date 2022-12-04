@@ -3,14 +3,14 @@
     <div class="list-container">
       <div class="list-title">IN</div>
       <hr class="solid">
-      <div *ngFor="let item of inItemList">
+      <div class="item-container" *ngFor="let item of inItemList">
         <app-item [item]="item"></app-item>
       </div>
     </div>
-    <div class="list-container">
+    <div  class="list-container">
       <div class="list-title">OUT</div>
       <hr class="solid">
-      <div *ngFor="let item of outItemList">
+      <div class="item-container" *ngFor="let item of outItemList">
         <app-item [item]="item"></app-item>
       </div>
     </div>
@@ -41,9 +41,11 @@
     <div>
       <div>
         <label style="font-weight: bold" (click)="pickImage" for="pickImage">Select image</label>
-        <input #pickImage style="visibility: hidden" id="pickImage" type="file" (change)="handleFileInput($event.target)"/>
+        <input #pickImage style="visibility: hidden" id="pickImage" type="file"
+               (change)="handleFileInput($event.target)"/>
       </div>
-      <img style="margin-top: 10px" width="200px" *ngIf="this.newItem.imageBase64" [src]="this.newItem.imageBase64" class="image">
+      <img style="margin-top: 10px" width="200px" *ngIf="this.newItem.imageBase64" [src]="this.newItem.imageBase64"
+           class="image">
     </div>
   </div>
   <div class="action-button-container">
