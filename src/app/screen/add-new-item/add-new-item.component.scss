@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.in-out-list-container {
+  display: flex;
+  gap: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.list-container {
+ width: 300px;
+}
+
+
+.list-title {
+  text-align: center;
+}
+
+.add-item-form {
+  margin-right: 20px;
+}
+

@@ -12,20 +12,14 @@ import {MatInputModule} from "@angular/material/input";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {RouterLink} from "@angular/router";
-import {LoginComponent} from "./page/authen/login/login.component";
-import {RegisterComponent} from "./page/authen/register/register.component";
 import {IndexComponent} from "./page/index/index.component";
 
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegisterComponent,
     IndexComponent,
   ],
   exports: [
-    LoginComponent,
-    RegisterComponent,
     IndexComponent,
   ],
   imports: [
